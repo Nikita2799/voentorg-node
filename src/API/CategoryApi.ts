@@ -58,4 +58,23 @@ export class CategoryApi {
 
 		return responce;
 	}
+
+	public async getCategoryByName(params: Array<any>) {
+		const sqlQuery = "SELECT * FROM ?? WHERE ??=?";
+
+		let responce: any = await new Promise((resolve, reject) => {
+			this.connection.query(
+				sqlQuery,
+				params,
+				(err: MysqlError | null, result: any) => {
+					if (err) reject(new Error(err.message));
+					console.log(err);
+
+					resolve(result);
+				},
+			);
+		});
+
+		return responce;
+	}
 }

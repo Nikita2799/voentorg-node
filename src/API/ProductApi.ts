@@ -71,6 +71,7 @@ export class ProductsApi {
 				params,
 				(err: MysqlError | null, result: Array<IProductList>) => {
 					if (err) reject(new Error(err.message));
+					if (result.length === 0) reject(0);
 					console.log(err);
 
 					resolve(result);

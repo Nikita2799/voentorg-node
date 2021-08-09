@@ -17,7 +17,7 @@ export const ProductRouter = (router: Router) => {
 	router.get("/product/get_all", getAllProduct);
 	router.get("/product/get_product_dis", getProductDiscont);
 	router.get("/product/get_one/:id", getOneProductById);
-	router.get("/product/get_prod_category/:id", getProductByCategory);
+	router.get("/product/get_prod_category/:name", getProductByCategory);
 	router.put("/product/update_image", updateProductImg);
 	router.put("/product/update/:id", updateProduct);
 	router.delete("/product/delete/:id", deleteProduct);
