@@ -6,13 +6,36 @@ const db: DatabaseApi = new DatabaseApi();
 
 export const postOrders = async (req: Request, res: Response) => {
 	try {
-		const { typePost, city, phoneClient, typePay, products, branchesNumber } = <
-			IOrder
-		>req.body;
+		const {
+			typePost,
+			city,
+			address,
+			phoneClient,
+			typePay,
+			products,
+			postNumber,
+			clientName,
+		} = <IOrder>req.body;
+
+		let validPhone = phoneClient.trim().replace(/[^\d]+/g, "");
+		console.log(req.body);
+
+		let number = Math.random();
+		number.toString(36); // '0.xtis06h6'
+		let orderNumber = number.toString(36).substr(2, 9); // 'xtis06h6'
 
 		const paramsOrder = [
 			"orders",
-			{ typePost, city, phoneClient, typePay, branchesNumber },
+			{
+				orderNumber,
+				clientName,
+				typePost,
+				city,
+				address,
+				phoneClient: validPhone,
+				typePay,
+				postNumber,
+			},
 		];
 
 		const resultOrder: any = await db.orders.postOrder(paramsOrder);

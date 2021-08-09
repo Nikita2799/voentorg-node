@@ -4,7 +4,9 @@ import { IProduct } from "../type";
 
 export const postProduct = async (req: Request, res: Response) => {
 	try {
-		const { name, category, price, discont, brand, desc } = <IProduct>req.body;
+		const { name, category, price, discont, brand, description } = <IProduct>(
+			req.body
+		);
 		const db: DatabaseApi = new DatabaseApi();
 		console.log(req.body);
 
@@ -16,7 +18,7 @@ export const postProduct = async (req: Request, res: Response) => {
 				price: price,
 				discont: discont,
 				brand: brand,
-				description: desc,
+				description: description,
 			},
 		];
 

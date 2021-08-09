@@ -5,7 +5,6 @@ export const getAllProduct = async (req: Request, res: Response) => {
 	try {
 		const db: DatabaseApi = new DatabaseApi();
 		const params: Array<unknown> = ["products"];
-		console.log("sdsd");
 
 		db.products
 			.getAll(params)

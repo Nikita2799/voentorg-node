@@ -6,7 +6,7 @@ export interface IProduct {
 	discont: number;
 	inOrder: number;
 	brand: string;
-	desc: string;
+	description: string;
 }
 
 export interface IProductList extends IProduct {

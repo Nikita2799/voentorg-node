@@ -1,17 +1,21 @@
 import { Request, Response } from "express";
 import { DatabaseApi } from "../../../dataBaseWorker/DatabaseApi";
 import { ICategory } from "../type";
+import translate from "@iamtraction/google-translate";
+
+const db: DatabaseApi = new DatabaseApi();
 
 export const postCategory = async (req: Request, res: Response) => {
 	try {
 		const { name } = <ICategory>req.body;
-		const db: DatabaseApi = new DatabaseApi();
-		console.log(req.body);
+
+		const word = await translate(name, { from: "ru", to: "en" });
 
 		const params: Array<unknown> = [
 			"category",
 			{
 				name: name,
+				engName: word.text,
 			},
 		];
 

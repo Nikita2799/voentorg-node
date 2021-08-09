@@ -8,7 +8,7 @@ export const getCurrentProduct = async (req: Request, res: Response) => {
 	try {
 		const data = req.body;
 		let productList: Array<IProductList> = await getProductList(data);
-
+		
 		res.status(200).json(productList);
 	} catch (err) {
 		console.log(err);

@@ -3,11 +3,13 @@ import { DatabaseApi } from "../../../dataBaseWorker/DatabaseApi";
 
 const db: DatabaseApi = new DatabaseApi();
 
-export const getNewOrders = async (req: Request, res: Response) => {
+export const getOrderProduct = async (req: Request, res: Response) => {
 	try {
-		const params = ["orders", "status", 0];
+		const { id } = req.params;
+		const params = ["orderProducts", "orderId", id];
 
-		const result: any = await db.orders.getNew(params);
+		const result: any = await db.orders.getProduct(params);
+		console.log(result);
 
 		res.status(200).json(result);
 	} catch (err) {
