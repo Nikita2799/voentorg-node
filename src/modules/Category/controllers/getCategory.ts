@@ -7,6 +7,7 @@ export const getCategory = async (req: Request, res: Response) => {
 		const params: Array<unknown> = ["category"];
 
 		const result = await db.category.getAll(params);
+		console.log(result);
 
 		res.status(200).json(result);
 	} catch (err) {

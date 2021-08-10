@@ -35,6 +35,7 @@ export const postOrders = async (req: Request, res: Response) => {
 				phoneClient: validPhone,
 				typePay,
 				postNumber,
+				status: 0,
 			},
 		];
 
