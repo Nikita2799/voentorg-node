@@ -8,6 +8,7 @@ export const getCategoryById = async (req: Request, res: Response) => {
 		const { id } = req.params;
 		const params = ["category", "id", id];
 		let categoryList: Array<unknown> = await db.category.getOneById(params);
+		console.log();
 
 		res.status(200).json(categoryList[0]);
 	} catch (err) {
