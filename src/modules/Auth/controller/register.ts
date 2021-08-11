@@ -20,6 +20,8 @@ export const register = async (req: express.Request, res: express.Response) => {
 		res.status(201).json({ message: "user create" });
 	} catch (err) {
 		if (err == 1062) res.status(422).json({ err: "duplicate name" });
+		console.log(err);
+
 		res.status(500).json([{ err: "Server Error" }]);
 	}
 };
