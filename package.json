@@ -6,7 +6,7 @@
 		"build": "tsc",
 		"start": "ts-node server.ts",
 		"watch": "nodemon",
-		"start:prod": "pm2 start ./dist/server.js"
+		"start:prod": "pm2 start ./dist/server.js --watch" 
 	},
 	"dependencies": {
 		"@types/bcrypt": "^3.0.1",

@@ -11,8 +11,9 @@ export class AdminApi {
 				sqlQuery,
 				dataUser,
 				(err: MysqlError | null, result: any) => {
+					console.log(err);
 					if (err) reject(err.errno);
-
+					
 					resolve(result);
 				},
 			);

@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const router_1 = require("../modules/Auth/router");
+const router_2 = require("../modules/Category/router");
+const router_3 = require("../modules/NewMail/router");
+const router_4 = require("../modules/Orders/router");
+const router_5 = require("../modules/Products/router");
+const router_6 = require("../modules/SubCategory/router");
+const corsSetting_1 = require("./corsSetting");
+const router = express_1.default();
+router.use(corsSetting_1.corsSettings);
+router_1.AuthRouter(router);
+router_5.ProductRouter(router);
+router_2.CategoryRouter(router);
+router_4.OrdersRouter(router);
+router_3.MailRouter(router);
+router_6.SubCategoryRouter(router);
+router.options("*", corsSetting_1.corsSettings);
+exports.default = router;
