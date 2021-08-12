@@ -9,6 +9,8 @@ export const register = async (req: express.Request, res: express.Response) => {
 	try {
 		const { name, email, password, phone } = <IDataRegister>req.body;
 		const hashPassword = await bcrypt.hash(password, 10);
+		console.log(hashPassword);
+
 		const db = new DatabaseApi();
 		const dataUser = [
 			"users",
