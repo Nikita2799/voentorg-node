@@ -15,6 +15,6 @@ export const config = {
 		password: process.env.DB_PASSWORD,
 	},
 	security_config: {
-		token: process.env.jwt,
+		token: process.env.JWT,
 	},
 };
