@@ -77,4 +77,42 @@ export class CategoryApi {
 
 		return responce;
 	}
+
+	public async delete(params: Array<any>) {
+		const sqlQuery = "DELETE FROM ?? WHERE ??=?";
+
+		let responce: any = await new Promise((resolve, reject) => {
+			this.connection.query(
+				sqlQuery,
+				params,
+				(err: MysqlError | null, result: any) => {
+					if (err) reject(new Error(err.message));
+					console.log(err);
+
+					resolve(result);
+				},
+			);
+		});
+
+		return responce;
+	}
+
+	public async update(params: Array<any>) {
+		const sqlQuery = "UPDATE ?? SET? WHERE ??=?";
+
+		let responce: any = await new Promise((resolve, reject) => {
+			this.connection.query(
+				sqlQuery,
+				params,
+				(err: MysqlError | null, result: any) => {
+					if (err) reject(new Error(err.message));
+					console.log(err);
+
+					resolve(result);
+				},
+			);
+		});
+
+		return responce;
+	}
 }
