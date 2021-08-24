@@ -7,6 +7,7 @@ export interface IOrder {
 	products: Array<any>;
 	postNumber: number;
 	address: string;
+	orderNumber: string;
 }
 
 export interface ISort {

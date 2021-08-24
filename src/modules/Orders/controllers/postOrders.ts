@@ -15,14 +15,14 @@ export const postOrders = async (req: Request, res: Response) => {
 			products,
 			postNumber,
 			clientName,
+			orderNumber,
 		} = <IOrder>req.body;
 
 		let validPhone = phoneClient.trim().replace(/[^\d]+/g, "");
-		console.log(req.body);
 
-		let number = Math.random();
-		number.toString(36); // '0.xtis06h6'
-		let orderNumber = number.toString(36).substr(2, 9); // 'xtis06h6'
+		//let number = Math.random();
+		//number.toString(36); // '0.xtis06h6'
+		//let orderNumber = number.toString(36).substr(2, 9); // 'xtis06h6'
 
 		const paramsOrder = [
 			"orders",
