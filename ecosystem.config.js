@@ -4,7 +4,8 @@ module.exports = {
 			name: "app1",
 			script: "./dist/server.js",
 			watch: true,
-			stop_exit_codes: [0],
+			watch_delay: 1000,
+			ignore_watch: ["node_modules", "./img"],
 		},
 	],
 };
