@@ -17,6 +17,7 @@ export const postOrders = async (req: Request, res: Response) => {
 			clientName,
 			orderNumber,
 		} = <IOrder>req.body;
+		console.log(req.body);
 
 		let validPhone = phoneClient.trim().replace(/[^\d]+/g, "");
 
