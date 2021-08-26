@@ -6,7 +6,7 @@
 		"build": "tsc",
 		"start": "ts-node server.ts",
 		"watch": "nodemon",
-		"start:prod": "pm2 start ./dist/server.js --watch --stop-exit-codes 0"
+		"start:prod": "pm2 start ./dist/server.js --stop-exit-codes 0"
 	},
 	"dependencies": {
 		"@iamtraction/google-translate": "^1.1.2",
