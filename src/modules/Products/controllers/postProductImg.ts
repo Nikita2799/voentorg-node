@@ -7,9 +7,9 @@ const db: DatabaseApi = new DatabaseApi();
 export const postProductImg = async (req: Request, res: Response) => {
 	try {
 		const { id, name } = req.body;
-		console.log(id, name);
+		console.log(req.body);
 
-		const params: Array<unknown> = ["products", { image: `${name}` }, "id", id];
+		const params: Array<unknown> = ["img", { src: `${name}`, productId: id }];
 
 		await db.products.postImage(params);
 

@@ -10,6 +10,7 @@ export const postCategory = async (req: Request, res: Response) => {
 		const { name } = <ICategory>req.body;
 
 		const word = await translate(name, { from: "ru", to: "en" });
+		console.log(word);
 
 		const params: Array<unknown> = [
 			"category",

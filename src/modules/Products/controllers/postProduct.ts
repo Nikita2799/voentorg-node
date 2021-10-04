@@ -4,21 +4,20 @@ import { IProduct } from "../type";
 
 export const postProduct = async (req: Request, res: Response) => {
 	try {
-		const { name, category, price, discont, brand, description } = <IProduct>(
-			req.body
-		);
+		const { dataProduct, size } = <any>req.body;
 		const db: DatabaseApi = new DatabaseApi();
 		console.log(req.body);
 
 		const params: Array<unknown> = [
 			"products",
 			{
-				name: name,
-				category: category,
-				price: price,
-				discont: discont,
-				brand: brand,
-				description: description,
+				name: dataProduct.name,
+				category: dataProduct.category,
+				price: dataProduct.price,
+				discont: dataProduct.discont,
+				brand: dataProduct.brand,
+				description: dataProduct.description,
+				size,
 			},
 		];
 

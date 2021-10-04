@@ -6,11 +6,12 @@ const db: DatabaseApi = new DatabaseApi();
 
 export const updateProductImg = async (req: Request, res: Response) => {
 	try {
-		const { id, name } = req.body;
-		console.log(name);
-		let image = `${name}`;
+		const { id } = req.params;
+		const { name } = req.body;
 
-		const params: Array<unknown> = ["products", { image }, "id", id];
+		let src = `${name}`;
+
+		const params: Array<unknown> = ["img", { src }, "imgId", id];
 
 		await db.products.updateImg(params);
 

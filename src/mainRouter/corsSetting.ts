@@ -8,9 +8,10 @@ const options: cors.CorsOptions = {
 		"Content-Type",
 		"Accept",
 		"X-Access-Token",
-		"Access-Control-Allow-Origin",
 	],
+	origin: "*",
 	credentials: true,
+
 	methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
 	preflightContinue: false,
 };

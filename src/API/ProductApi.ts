@@ -22,8 +22,28 @@ export class ProductsApi {
 		return responce;
 	}
 
+	public async getImgProduct(params: Array<any>) {
+		let sqlQuery = "SELECT * FROM ?? WHERE ??=?";
+
+		let responce = await new Promise((resolve, reject) => {
+			this.connection.query(
+				sqlQuery,
+				params,
+				(err: MysqlError | null, result: Array<IProductList>) => {
+					if (err) reject(new Error(err.message));
+					console.log(err);
+
+					resolve(result);
+				},
+			);
+		});
+
+		return responce;
+	}
+
 	public async getAll(params: Array<any>) {
-		let sqlQuery = "SELECT * FROM ??";
+		let sqlQuery =
+			"SELECT * FROM ?? as p INNER JOIN img as i ON p.id=i.productId";
 
 		let responce = await new Promise((resolve, reject) => {
 			this.connection.query(
@@ -42,7 +62,8 @@ export class ProductsApi {
 	}
 
 	public async getOne(params: Array<any>): Promise<Array<IProductList>> {
-		let sqlQuery = "SELECT * FROM ?? WHERE ??=?";
+		let sqlQuery =
+			"SELECT * FROM ?? as p INNER JOIN img as i ON p.id=i.productId WHERE p.id=?";
 
 		let responce: Array<IProductList> = await new Promise((resolve, reject) => {
 			this.connection.query(
@@ -180,7 +201,7 @@ export class ProductsApi {
 	}
 
 	public async postImage(params: Array<any>): Promise<Array<IProductList>> {
-		const sqlQuery = "UPDATE ?? SET? WHERE ??=? ";
+		const sqlQuery = "INSERT INTO ?? SET?";
 
 		const responce: any = await new Promise((resolve, reject) => {
 			this.connection.query(

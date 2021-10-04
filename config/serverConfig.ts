@@ -17,4 +17,8 @@ export const config = {
 	security_config: {
 		token: process.env.JWT,
 	},
+	sendpulse_config: {
+		user_id: process.env.API_USER_ID,
+		secret: process.env.USER_SECRET,
+	},
 };

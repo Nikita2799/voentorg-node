@@ -7,7 +7,7 @@ const db: DatabaseApi = new DatabaseApi();
 export const getOneProductById = async (req: Request, res: Response) => {
 	try {
 		const { id } = req.params;
-		const params = ["products", "id", id];
+		const params = ["products", id];
 		let productList: Array<IProductList> = await db.products.getOne(params);
 
 		res.status(200).json(productList[0]);
