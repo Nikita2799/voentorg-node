@@ -22,7 +22,7 @@ export const smsSend = async (req: Request, res: Response) => {
 const initSendpulse = async (phone: string, message: string) => {
 	const tokenAccess = await getAccessToken();
 	//console.log(tokenAccess?.access_token);
-	const date = moment().add(1, "seconds").format("Y-M-D h:mm:ss");
+	const date = moment().add(1, "seconds").format("Y-M-D kk:mm:ss");
 	console.log(date);
 
 	sendpulse.init(
