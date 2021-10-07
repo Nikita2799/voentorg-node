@@ -11,6 +11,7 @@ import { updateProductImg } from "./controllers/updateProuductImg";
 import { getProductByCategory } from "./controllers/getProductByCategory";
 import { getImgProduct } from "./controllers/getImgProduct";
 import { getAllImgProduct } from "./controllers/getAllImgProduct";
+import { deleteImg } from "./controllers/deleteImg";
 
 export const ProductRouter = (router: Router) => {
 	router.post("/product/post", postProduct);
@@ -25,4 +26,5 @@ export const ProductRouter = (router: Router) => {
 	router.put("/product/update_image/:id", updateProductImg);
 	router.put("/product/update/:id", updateProduct);
 	router.delete("/product/delete/:id", deleteProduct);
+	router.delete("/product/delete_img/:id", deleteImg);
 };

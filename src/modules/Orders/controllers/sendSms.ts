@@ -8,11 +8,11 @@ import moment from "moment";
 
 export const smsSend = async (req: Request, res: Response) => {
 	try {
-		const { phone } = req.body;
+		const { phone,message } = req.body;
 
-		await initSendpulse(phone, "test");
+		await initSendpulse(phone, message);
 
-		res.status(200).json("sddsd");
+		res.status(200).json("send");
 	} catch (err) {
 		console.log(err, "main-err");
 		res.status(422).json({ message: "Wrong something" });
@@ -35,12 +35,14 @@ const initSendpulse = async (phone: string, message: string) => {
 			}
 			const phoneArr = [phone]
 			console.log(phoneArr);
+			console.log(message);
+			
 			
 			const answer = function (data: any) {
 				console.log(data, "data");
 			};
 
-			sendpulse.smsSend(answer, "test", phoneArr, "hello",date, "test", route);
+			sendpulse.smsSend(answer, "test", phoneArr, message ,date, "test", route);
 		},
 	);
 };
