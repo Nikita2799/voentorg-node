@@ -5,7 +5,7 @@ export const deleteImg = async (req: Request, res: Response) => {
 	try {
 		const { id } = req.params;
 		const db: DatabaseApi = new DatabaseApi();
-		const params: Array<unknown> = ["img", "id", id];
+		const params: Array<unknown> = ["img", "imgId", id];
 
         await db.products.delete(params)
 
