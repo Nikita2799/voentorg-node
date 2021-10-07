@@ -17,7 +17,7 @@ export const ProductRouter = (router: Router) => {
 	router.post("/product/get_data_product", getCurrentProduct);
 	router.post("/product/post_image", postProductImg);
 	router.get("/product/get_all", getAllProduct);
-	router.get("/product/get_all_img", getAllImgProduct);
+	router.get("/product/get_all_img/:productId", getAllImgProduct);
 	router.get("/product/get_img/:imgId", getImgProduct);
 	router.get("/product/get_product_dis", getProductDiscont);
 	router.get("/product/get_one/:id", getOneProductById);

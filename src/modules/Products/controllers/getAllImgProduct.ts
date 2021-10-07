@@ -5,8 +5,8 @@ const db: DatabaseApi = new DatabaseApi();
 
 export const getAllImgProduct = async (req: Request, res: Response) => {
 	try {
-		const { imgId } = req.body;
-		const params: Array<unknown> = ["img", "productId", imgId];
+		const { productId } = req.params;
+		const params: Array<unknown> = ["img", "productId", productId];
 
 		const result: any = await db.products.getImgProduct(params);
         console.log(result);
