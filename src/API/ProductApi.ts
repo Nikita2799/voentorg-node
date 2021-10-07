@@ -84,7 +84,7 @@ export class ProductsApi {
 	public async getProductCategory(
 		params: Array<any>,
 	): Promise<Array<IProductList>> {
-		let sqlQuery = "SELECT * FROM ?? WHERE ??=?";
+		let sqlQuery = "SELECT * FROM ?? as p INNER JOIN img as i ON p.id=i.productId WHERE p.category=?";
 
 		let responce: Array<IProductList> = await new Promise((resolve, reject) => {
 			this.connection.query(
@@ -222,7 +222,7 @@ export class ProductsApi {
 	public async getProductDiscount(
 		params: Array<any>,
 	): Promise<Array<IProductList>> {
-		const sqlQuery = "SELECT * FROM ?? WHERE ??!=? ";
+		const sqlQuery = "SELECT * FROM ?? as p INNER JOIN img as i ON p.id=i.productId WHERE p.discont!=? ";
 
 		const responce: any = await new Promise((resolve, reject) => {
 			this.connection.query(

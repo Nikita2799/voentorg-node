@@ -11,11 +11,24 @@ export const getProductByCategory = async (req: Request, res: Response) => {
 
 		const result: any = await db.products.getProductCategory([
 			"products",
-			"category",
 			category[0].id,
 		]);
 
-		res.status(200).json(result);
+		let lastId = 0;
+
+		const productSort = result.filter((e: any, i: number) => {
+			if (lastId === 0) {
+				lastId = e.id;
+				return true;
+			}
+			if (lastId === e.id) {
+				return false;
+			}
+			lastId = e.id;
+			return true;
+		});
+
+		res.status(200).json(productSort);
 	} catch (err) {
 		console.log(err);
 		if (err === 0) return res.status(422).json({ message: "Empty product" });
