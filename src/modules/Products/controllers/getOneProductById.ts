@@ -9,7 +9,8 @@ export const getOneProductById = async (req: Request, res: Response) => {
 		const { id } = req.params;
 		const params = ["products", id];
 		let productList: Array<IProductList> = await db.products.getOne(params);
-
+		console.log(productList);
+		
 		res.status(200).json(productList[0]);
 	} catch (err) {
 		console.log(err);
