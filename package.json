@@ -17,13 +17,14 @@
 		"@types/moment": "^2.13.0",
 		"@types/multer": "^1.4.5",
 		"@types/mysql": "^2.15.17",
-		"axios": "^0.21.1",
+		"axios": "^0.21.4",
 		"bcrypt": "^5.0.1",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"jsonwebtoken": "^8.5.1",
+		"kill-port": "^1.6.1",
 		"moment": "^2.29.1",
 		"multer": "^1.4.2",
 		"mysql": "^2.18.1",
@@ -42,7 +43,12 @@
 		"watch": [
 			"."
 		],
+		"events": {
+			"restart": "kill-port 8080",
+			"crash": "kill-port 8080"
+		},
 		"exec": "npm start",
-		"ext": "ts"
+		"ext": "ts",
+		"delay": "1500"
 	}
 }

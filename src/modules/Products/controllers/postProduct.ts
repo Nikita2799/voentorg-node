@@ -12,7 +12,7 @@ export const postProduct = async (req: Request, res: Response) => {
 			"products",
 			{
 				name: dataProduct.name,
-				category: dataProduct.category,
+				category: dataProduct.sub,
 				price: dataProduct.price,
 				discont: dataProduct.discont,
 				brand: dataProduct.brand,
