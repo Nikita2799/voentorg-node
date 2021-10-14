@@ -1,12 +1,14 @@
 import { Request, Response } from "express";
 import { DatabaseApi } from "../../../dataBaseWorker/DatabaseApi";
+import translate from '@iamtraction/google-translate';
+
 
 const db: DatabaseApi = new DatabaseApi();
 
 export const postSubCategory = async (req: Request, res: Response) => {
 	try {
 		const { name, categoryId } = req.body;
-
+		const word = await translate(name, { from: "ru", to: "en" });
 		console.log(req.body);
 
 		const params: Array<unknown> = [
@@ -14,7 +16,8 @@ export const postSubCategory = async (req: Request, res: Response) => {
 			{
 				name: name,
 				categoryId: categoryId,
-				src: ''
+				src: '',
+				engName: word
 			},
 		];
 
