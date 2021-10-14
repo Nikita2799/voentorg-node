@@ -6,7 +6,9 @@ const db: DatabaseApi = new DatabaseApi();
 export const getSubByCategory = async (req: Request, res: Response) => {
 	try {
 		const {id} = req.params;
-		const params: Array<unknown> = ["subcategory","categoryId",id];
+		const cat = ['category',"engName",id]
+		const catName = await db.category.getCategoryByName(cat)
+		const params: Array<unknown> = ["subcategory","categoryId",catName[0].id];
 
 		const result = await db.subcategory.getByCategory(params);
         console.log(result);
