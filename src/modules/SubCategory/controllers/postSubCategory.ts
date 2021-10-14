@@ -17,7 +17,7 @@ export const postSubCategory = async (req: Request, res: Response) => {
 				name: name,
 				categoryId: categoryId,
 				src: '',
-				engName: word
+				engName: word.text
 			},
 		];
 
