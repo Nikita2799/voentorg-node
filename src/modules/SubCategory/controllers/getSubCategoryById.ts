@@ -9,7 +9,7 @@ export const getSubCategoryById = async (req: Request, res: Response) => {
 		const params = ["subcategory", "categoryId", id];
 		let categoryList: Array<unknown> = await db.category.getOneById(params);
 
-		res.status(200).json(categoryList[0]);
+		res.status(200).json(categoryList);
 	} catch (err) {
 		console.log(err);
 		res.status(422).json({ message: "Bad request" });
