@@ -17,7 +17,7 @@ export const getProductByIdSubCat = async (req: Request, res: Response) => {
 		const result: any = await db.products.getProductCategory([
 			"products",
 			"category",
-			category[0].id,
+			id,
 		]);
 
 		let lastId = 0;
